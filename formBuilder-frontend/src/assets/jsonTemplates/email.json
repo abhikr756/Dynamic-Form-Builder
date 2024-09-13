@@ -1,0 +1,12 @@
+{
+    "key": "Email",
+    "type": "input",
+    "wrappers":["group-input-field", "form-field"],
+    "props": {
+      "label": "Email",
+      "type":"email",
+      "placeholder":"Enter your email",
+      "description":"example@gmail.com",
+      "required": true
+    }
+}

@@ -1,0 +1,30 @@
+{
+  "key": "Fullname", 
+  "fieldGroupClassName": "row",
+  "props":{"label":"Name"},
+  "wrappers":["group-input-field"],
+  "fieldGroup": [
+    {
+      "className": "col-6",
+      "type": "input",
+      "key": "firstName",
+      "props": {
+        "label": " Enter First Name",
+        "description":"First Name",
+        "placeholder":"Placeholder",
+        "required":true
+      }
+    },
+    {
+      "className": "col-6",
+      "type": "input",
+      "key": "lastName",
+      "props": {
+        "label": "Enter Last Name",
+        "description":"Last Name",
+        "placeholder":"Placeholder",
+        "required":true
+      }
+    }
+  ]
+}

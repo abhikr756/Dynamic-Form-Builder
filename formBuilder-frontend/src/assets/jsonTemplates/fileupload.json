@@ -1,0 +1,8 @@
+{
+    "key": "File Upload",
+    "type": "file",
+    "templateOptions": {
+      "label": "Upload File",
+      "required": true
+    }
+}

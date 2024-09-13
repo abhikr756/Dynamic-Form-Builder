@@ -1,0 +1,27 @@
+<div class="title">
+  <h2 mat-dialog-title>Edit Fullname Field</h2>
+  <button mat-icon-button (click)="closeButton()"><mat-icon>close</mat-icon></button>
+</div>
+<mat-dialog-content class="main">
+<div *ngFor="let option of tempField.fieldGroup; let i = index" class="field-group">
+  
+  <mat-form-field>
+    <mat-label>Label</mat-label>
+    <input matInput type="text" [(ngModel)]="option.props.label" >
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Placeholder</mat-label>
+    <input matInput type="text" [(ngModel)]="option.props.placeholder" >
+  </mat-form-field>
+  <mat-form-field>
+  <mat-label>Description</mat-label>
+    <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="3" [(ngModel)]="option.props.description"></textarea>
+  </mat-form-field>
+  <mat-checkbox [(ngModel)]="tempField.fieldGroup[i].props.required">Required</mat-checkbox>
+  <mat-divider></mat-divider>
+  </div>
+  
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button (click)="saveButton()">Save</button>
+</mat-dialog-actions>

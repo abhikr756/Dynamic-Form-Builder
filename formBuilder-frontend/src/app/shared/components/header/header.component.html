@@ -1,0 +1,32 @@
+<app-notification></app-notification>
+<mat-toolbar>
+  <mat-label class="form-header-name" (click)="goToHome()"
+    >Spartan's form</mat-label
+  >
+
+  <!-- <mat-form-field appearance="outline" class="my-forms">
+    <mat-select placeholder="Builder">
+      <mat-option value="newForm" onclick="// console.log('new form')"
+        >New Form</mat-option
+      >
+      <mat-option value="openForm">Open Form</mat-option>
+    </mat-select>
+  </mat-form-field> -->
+
+  <button mat-button [matMenuTriggerFor]="menu">
+    Form Builder <mat-icon>arrow_drop_down</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="newForm()">New Form</button>
+    <button mat-menu-item (click)="openForm()">Open Form</button>
+  </mat-menu>
+
+  <div *ngIf="type === 'builder'">
+    <button mat-icon-button [matMenuTriggerFor]="userMenu">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <mat-menu #userMenu="matMenu">
+      <button mat-menu-item>Logout</button>
+    </mat-menu>
+  </div>
+</mat-toolbar>

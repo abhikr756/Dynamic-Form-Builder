@@ -1,0 +1,14 @@
+{
+    "key": "Text",
+    "type": "input",
+    "wrappers":["group-input-field", "form-field"],
+    "templateOptions": {
+      "label": "Text",
+      "placeholder": "Placeholder",
+      "rows":3,
+      "description": "Description",
+      "required": true
+    }
+  }
+  
+  

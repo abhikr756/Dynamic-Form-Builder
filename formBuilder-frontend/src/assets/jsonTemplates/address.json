@@ -1,0 +1,39 @@
+{
+  "key": "Address",
+  "props":{"label":"Address"},
+  "wrappers":["group-input-field"],
+  "fieldGroup": [
+    {
+      "type": "input",
+      "key": "street",
+      "props": {
+        "label": "Enter Street",
+        "description":"Street",
+        "placeholder":"Placeholder",
+        "required": true
+      }
+    },
+    {
+      "type": "input",
+      "key": "cityName",
+      "props": {
+        "label": "Enter City",
+        "description":"City",
+        "placeholder":"Placeholder",
+        "required": true
+      }
+    },
+    {
+      "type": "input",
+      "key": "zip",
+      "props": {
+        "type": "number",
+        "required": true,
+        "label": "Enter Zip Code",
+        "description":"Zip Code",
+        "placeholder":"Placeholder",
+        "pattern": "\\d{6}"
+      }
+    }
+  ]
+}

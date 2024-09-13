@@ -1,0 +1,72 @@
+.editor-window
+	overflow: auto
+	height: 75vh
+	padding: 20px
+	border-radius: 40px
+	width: 60%
+	margin: 0 auto
+	margin-top: 5px
+	background-color: var(--color-back)
+
+	.empty-message
+		display: flex
+		align-items: center
+		height: 75vh
+		justify-content: center
+
+.form-item
+	position: relative
+	z-index: 0
+	background-color: var(--color-100)
+	border-radius: 30px
+	padding: 0 3px 0 3px
+
+
+.item-menu
+	position: absolute
+	top: -20px
+	z-index: 1
+	right: 0
+	display: none
+	align-items: center
+	cursor: pointer
+	background-color: var(--color-100)
+	border: 1px solid black
+	border-radius: 100px
+	// width: 150px
+	justify-content: space-between
+
+.form-item:hover .item-menu
+	display: flex
+
+.drag-handle
+	display: flex
+	padding-top: 10px
+	align-items: center
+	cursor: move
+	justify-content: center
+
+.field-container
+	margin-top: 10px
+
+.form-header
+	display: flex
+	flex-direction: column
+	margin-left: 10px
+
+	.form-header-edit
+		display: flex
+		align-items: center
+		// justify-content: space-between
+
+		.form-label
+			flex-grow: 1
+		
+		.form-name
+			font-weight: bold
+			font-size: 1.3rem
+		.form-description
+			font-size: 0.9rem
+
+		.edit-button
+			margin-left: 10px

@@ -1,0 +1,103 @@
+<div
+  class="editor-window"
+  id="form-list"
+  cdkDropListConnectedTo="control-list"
+  cdkDropList
+  (cdkDropListDropped)="onDrop($event)"
+>
+  <ng-container
+    *ngIf="formFields && formFields.length > 0; else emptyState"
+    class="display-area"
+  >
+    <div class="form-header">
+      <div class="form-header-edit">
+        <div class="form-label form-name">
+          <div *ngIf="!isEditingFormName; else editFormName">
+            {{ formName || "Enter Form Name" }}
+          </div>
+          <ng-template #editFormName>
+            <mat-form-field>
+              <input
+                placeholder="Form Name"
+                matInput
+                [(ngModel)]="formName"
+                [value]="formName"
+                (blur)="isEditingFormName = false"
+                (ngModelChange)="onFormNameChange($event)"
+              />
+            </mat-form-field>
+          </ng-template>
+        </div>
+
+        <button
+          mat-icon-button
+          class="edit-button"
+          (click)="isEditingFormName = !isEditingFormName"
+        >
+          <mat-icon *ngIf="!isEditingFormName">edit</mat-icon>
+          <mat-icon *ngIf="isEditingFormName">save</mat-icon>
+        </button>
+      </div>
+
+      <div class="form-header-edit">
+        <div class="form-label form-description">
+          <div *ngIf="!isEditingFormDescription; else editFormDescription">
+            {{ formDescription || "Enter Form Description" }}
+          </div>
+          <ng-template #editFormDescription>
+            <mat-form-field>
+              <input
+                matInput
+                placeholder="Form Description"
+                [(ngModel)]="formDescription"
+                [value]="formDescription"
+                (blur)="isEditingFormDescription = false"
+                (ngModelChange)="onFormDescriptionChange($event)"/>
+            </mat-form-field>
+          </ng-template>
+        </div>
+
+        <button
+          mat-icon-button
+          class="edit-button"
+          (click)="isEditingFormDescription = !isEditingFormDescription"
+        >
+          <mat-icon *ngIf="!isEditingFormDescription">edit</mat-icon>
+          <mat-icon *ngIf="isEditingFormDescription">save</mat-icon>
+        </button>
+      </div>
+    </div>
+
+    <div
+      *ngFor="let field of formFields; let index = index"
+      cdkDrag
+      class="raisedbox"
+    >
+      <div class="form-item">
+        <div class="form-menu">
+          <div class="drag-handle" cdkDragHandle>
+            <mat-icon> drag_handle</mat-icon>
+          </div>
+        </div>
+        <div class="item-menu">
+          <button
+            mat-icon-button
+            (click)="editField(field, index)"
+            class="menu-btn"
+          >
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button (click)="deleteField(index)" class="menu-btn">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+        <div class="field-container">
+          <formly-form [model]="{}" [fields]="[field]"></formly-form>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <ng-template #emptyState>
+    <div class="empty-message">Drag Fields here</div>
+  </ng-template>
+</div>

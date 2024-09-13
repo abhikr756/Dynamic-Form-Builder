@@ -1,0 +1,42 @@
+<app-notification></app-notification>
+<div class="main-container" [style.max-width.px]="displaySizes[selectedSize]">
+  <div class="form-header">
+    <mat-label class="form-name">{{ formName }}</mat-label>
+    <p>{{ formDescription }}</p>
+  </div>
+
+  <div class="form-container">
+    <form [formGroup]="idForm" (ngSubmit)="onSubmit()">
+      <div
+        class="user-identity-container"
+        *ngIf="identityTypes !== null && identityTypes.length > 0"
+      >
+        <div *ngFor="let identityType of identityTypes; let i = index">
+          <label
+            ><b>Enter your {{ identityType }}</b></label
+          >
+          <mat-form-field>
+            <input
+              matInput
+              type="text"
+              formControlName="{{ identityType }}"
+              placeholder="{{ capitalizeFirstLetter(identityType) }}"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+
+      <formly-form [form]="form" [fields]="fields" [model]="model">
+      </formly-form>
+
+      <div align="end" class="submit-reset-buttons">
+        <button mat-button color="warn" type="reset" (click)="onReset()">
+          Reset
+        </button>
+        <button mat-raised-button type="submit" class="btn-submit">
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

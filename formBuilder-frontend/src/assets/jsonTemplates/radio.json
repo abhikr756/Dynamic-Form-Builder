@@ -1,0 +1,16 @@
+  {
+    "key": "Radio Button",
+    "type": "radio",
+    "wrappers":["group-input-field", "form-field"],
+    "props": {
+      "label": "my radio",
+      "description": "Description",
+      "required": true,
+      "options": [
+        { "value": "Option 1", "label": "Option 1" },
+        { "value": "Option 2", "label": "Option 2" },
+        { "value": "Option 3", "label": "Option 3" },
+        { "value": "Option 4", "label": "Option 4", "disabled": true }
+      ]
+    }
+  }

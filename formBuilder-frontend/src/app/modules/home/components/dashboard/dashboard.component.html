@@ -1,0 +1,56 @@
+<app-header [type]="'builder'"></app-header>
+<div class="forms-container">
+  <div *ngFor="let form of forms; let index = index">
+    <div class="my-form">
+      <div class="row">
+        <div>
+          <mat-label class="form-name">{{ form.formName }}</mat-label>
+          <br />
+          <mat-label class="form-link"
+            >{{ baseUrl + "/forms/" }}{{ form.formId }}</mat-label
+          >
+        </div>
+        <div class="link-icons">
+          <button
+            matTooltip="edit"
+            mat-icon-button
+            (click)="openInNewTab(baseUrl + '/builder/' + form.formId)"
+          >
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button
+            matTooltip="copy"
+            mat-icon-button
+            (click)="copyToClipboard(baseUrl + '/forms/' + form.formId)"
+          >
+            <mat-icon>content_copy</mat-icon>
+          </button>
+
+          <button
+            matTooltip="open in browser"
+            mat-icon-button
+            (click)="openInNewTab(baseUrl + '/forms/' + form.formId)"
+          >
+            <mat-icon>open_in_browser</mat-icon>
+          </button>
+
+          <button
+            matTooltip="show response"
+            mat-icon-button
+            (click)="openInNewTab(baseUrl + '/responses/' + form.formId)"
+          >
+            <mat-icon>insert_chart</mat-icon>
+          </button>
+
+          <button
+            matTooltip="delete"
+            mat-icon-button
+            (click)="deleteForm(form.formId, index)"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

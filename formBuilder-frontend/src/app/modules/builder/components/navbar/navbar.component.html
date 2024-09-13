@@ -1,0 +1,40 @@
+<mat-toolbar>
+  <ng-container *ngIf="!isPreviewMode(); else previewModeContent">
+    <button mat-raised-button class="publish-btn" (click)="navigateToPublish()">
+      Publish
+    </button>
+    <!-- <span class="form-name" >{{ formName }}</span> -->
+    <!-- <span class="form-name">
+            <input matInput [(ngModel)]="formName" name="formNameInput">
+          </span> -->
+  </ng-container>
+
+  <ng-template #previewModeContent>
+    <mat-form-field appearance="outline" class="form-link">
+      <input matInput placeholder="Form Link" [(ngModel)]="formLink" readonly />
+      <button matSuffix mat-icon-button (click)="copyToClipboard()">
+        <mat-icon>content_copy</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <mat-button-toggle-group
+      name="fontStyle"
+      aria-label="Font Style"
+      (change)="changeFormModalSize($event.value)"
+    >
+      <mat-button-toggle value="mobile"
+        ><mat-icon>stay_current_portrait</mat-icon> Mobile</mat-button-toggle
+      >
+      <mat-button-toggle value="tablet"
+        ><mat-icon>tablet</mat-icon> Tablet</mat-button-toggle
+      >
+      <mat-button-toggle value="desktop" checked="true"
+        ><mat-icon>laptop</mat-icon> Desktop</mat-button-toggle
+      >
+    </mat-button-toggle-group>
+  </ng-template>
+
+  <button mat-raised-button class="preview-btn" (click)="togglePreviewMode()">
+    {{ buttonText }}
+  </button>
+</mat-toolbar>

@@ -1,0 +1,13 @@
+{
+  "key": "Rating",
+  "type": "slider",
+  "wrappers":["group-input-field", "form-field"],
+  "props": {
+      "label": "Please provide rating",
+      "description": "Rating from 1-5",
+      "thumbLabel": true,
+      "min":1,
+      "max":5,
+      "required": true
+  }
+}

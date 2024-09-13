@@ -1,0 +1,11 @@
+{
+    "key": "Header",
+    "type": "input",
+    "wrappers":["group-input-field", "form-field"],
+    "props": {
+      "label": "Heading",
+      "placeholder": "Type a header",
+      "description":"Description",
+      "required": true
+    }
+  }

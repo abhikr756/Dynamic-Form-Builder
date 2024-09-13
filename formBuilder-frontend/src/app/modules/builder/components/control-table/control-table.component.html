@@ -1,0 +1,20 @@
+<mat-tab-group>
+  <mat-tab label="Elements">
+
+    <div cdkDropList #availableControlsList [cdkDropListData]="availableControls" id="control-list"
+      cdkDropListConnectedTo="form-list">
+      <div *ngFor="let control of availableControls" cdkDrag [cdkDragData]="control" class="form-draggable-element">
+        <mat-label>{{ [control.key] }}</mat-label>
+      </div>
+    </div>
+  </mat-tab>
+  
+  <mat-tab label="Identity">
+    <mat-checkbox value="email" [checked]="checkType('email')" (change)="onIdentityChange('email')">Email</mat-checkbox>
+    <br>
+    <mat-checkbox value="name" [checked]="checkType('name')" (change)="onIdentityChange('name')">Name</mat-checkbox>
+    <br>
+  <mat-checkbox value="phone" [checked]="checkType('phone')" (change)="onIdentityChange('phone')">Phone Number</mat-checkbox>
+    
+  </mat-tab>
+</mat-tab-group>

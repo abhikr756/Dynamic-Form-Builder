@@ -1,0 +1,42 @@
+<app-header></app-header>
+<div *ngIf="formResponses.length > 0; else noResponses" class="form-response-container">
+  <div class="form-responses-header">
+    <h3>Total Responses: {{ formResponses.length }}</h3>
+    <button matTooltip="Save Responses in CSV"  mat-icon-button  (click)="downloadCSV()"><mat-icon>file_download</mat-icon> </button>
+  </div>
+
+  <div class="table-responsive">
+
+    <table mat-table [dataSource]="rows" class="mat-elevation-z8">
+
+      <ng-container *ngFor="let column of columns">
+        <ng-container matColumnDef="{{ column }}">
+          <th mat-header-cell *matHeaderCellDef>{{ column }}</th>
+          <td mat-cell *matCellDef="let row">{{ row[column] }}</td>
+        </ng-container>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayColumns"></tr>
+
+    </table>
+  </div>
+
+  <!-- <div
+    *ngFor="let response of formResponses; let i = index"
+    class="form-response"
+  >
+  <p>{{response | json}}</p>
+    <p><strong>User Identity:</strong></p>
+    <pre>{{ response.identities | json }}</pre>
+    <p><strong>Form Response:</strong></p>
+    <pre>{{ response.formData | json }}</pre>
+  </div> -->
+</div>
+
+<ng-template #noResponses>
+  <div class="no-response">
+    <mat-icon>mood_bad</mat-icon>
+    &nbsp; No responses found!
+  </div>
+</ng-template>

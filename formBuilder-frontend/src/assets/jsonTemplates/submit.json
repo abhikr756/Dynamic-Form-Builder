@@ -1,0 +1,9 @@
+
+{
+  "key":"submit",
+    "type": "button",
+    "templateOptions": {
+      "text": "My button"
+    }
+  }
+

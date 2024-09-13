@@ -1,0 +1,39 @@
+<div class="title">
+  <h2 mat-dialog-title>Edit Dropdown Field</h2>
+  <button mat-icon-button (click)="closeButton()"><mat-icon>close</mat-icon></button>
+</div>
+<mat-dialog-content class="main">
+  <div class="field-group">
+    <mat-form-field>
+      <mat-label>Label</mat-label>
+      <input matInput type="text" [(ngModel)]="tempField.props.label">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Placeholder</mat-label>
+      <input matInput type="text" [(ngModel)]="tempField.props.placeholder">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Description</mat-label>
+      <input matInput type="text" [(ngModel)]="tempField.props.description">
+    </mat-form-field>
+  </div>
+  <mat-label>Options</mat-label>
+  <div class="field-option-group">
+    <div *ngFor="let option of tempField.props.options; let i = index">
+      <mat-form-field>
+        <input matInput type="text" [(ngModel)]="option.label" (blur)="updateOptionValue(i)">
+      </mat-form-field>
+    </div>
+    <div class="field-add-option">
+      <mat-form-field>
+        <mat-label>Add New Option</mat-label>
+        <input matInput type="text" [(ngModel)]="newOptionLabel" (keyup.enter)="addOption()">
+        <mat-hint>Press Enter to add</mat-hint>
+      </mat-form-field>
+    </div>
+  </div>
+  <mat-checkbox [(ngModel)]="tempField.props.required">Required</mat-checkbox>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="saveButton()">Save</button>
+</mat-dialog-actions>

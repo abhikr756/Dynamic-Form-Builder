@@ -1,0 +1,13 @@
+{
+  "key": "Long Text",
+  "type": "textarea",
+  "wrappers":["group-input-field", "form-field"],
+  "templateOptions": {
+    "label": "Textarea",
+    "placeholder": "Placeholder",
+    "rows":3,
+    "description": "Description",
+    "required": true
+  }
+}
+

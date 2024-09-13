@@ -1,0 +1,18 @@
+
+  {
+    "key": "Checkbox",
+    "type": "checkbox",
+    "wrappers":["group-input-field", "form-field"],
+    "props": {
+      "label": "Please Accept terms & condition ",
+      "description": "In order to proceed, please accept terms",
+      "pattern": "true",
+      "required": true
+    },
+    "validation": {
+      "messages": {
+        "pattern": "Please accept the terms"
+      }
+    }
+  }
+

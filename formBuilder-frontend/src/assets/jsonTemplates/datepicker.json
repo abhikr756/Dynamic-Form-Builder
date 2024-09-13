@@ -1,0 +1,11 @@
+{
+  "key": "Datepicker",
+  "type": "datepicker",
+  "wrappers":["group-input-field", "form-field"],
+  "props": {
+    "label": "Datepicker",
+    "placeholder": "Placeholder",
+    "description": "Description",
+    "required": true
+  }
+}

@@ -1,0 +1,22 @@
+<div class="container">
+  <app-header [type]="'builder'"></app-header>
+  <app-navbar (sizeChange)="onSizeChange($event)"></app-navbar>
+  <ng-container *ngIf="!isPreviewMode; else previewContent">
+    <div class="row">
+      <div class="col-2">
+        <app-control-table [identityTypes]="identityTypes" (identitiesChange)="onIdentitiesChange($event)"></app-control-table>
+      </div>
+      <div class="col-10">
+        <app-form-builder [identityTypes]="identityTypes" (identitiesChange)="onIdentitiesChange($event)"></app-form-builder>
+      </div>
+    </div>
+  </ng-container>
+  <ng-template #previewContent>
+    <!-- Render content for PreviewComponent -->
+    <!-- <app-preview></app-preview> -->
+    <app-form-modal
+      [inPublishMode]="false"
+      [selectedSize]="selectedSize"
+    ></app-form-modal>
+  </ng-template>
+</div>

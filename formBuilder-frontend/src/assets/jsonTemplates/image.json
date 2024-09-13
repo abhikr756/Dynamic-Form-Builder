@@ -1,0 +1,8 @@
+{
+    "key": "Image",
+    "type": "image",
+    "templateOptions": {
+      "label": "Upload Image",
+      "required": true
+    }
+  }
